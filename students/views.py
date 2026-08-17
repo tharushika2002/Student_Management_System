@@ -5,7 +5,7 @@ from .forms import StudentForm
 
 def dashboard(request):
     students = Student.objects.all()
-
+    
     total_students = students.count()
 
     courses = students.values("course").distinct().count()

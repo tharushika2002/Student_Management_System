@@ -539,3 +539,38 @@ body {
     }
 
 }
+
+
+/* ================================
+   Search
+================================ */
+
+.search-form {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+    max-width: 500px;
+}
+
+.search-form input {
+    flex: 1;
+
+    padding: 11px 14px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.search-form input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}

@@ -22,6 +22,21 @@
 
 </div>
 
+<form method="GET" class="search-form">
+
+    <input
+        type="text"
+        name="q"
+        placeholder="Search student..."
+        value="{{ query|default:'' }}"
+    >
+
+    <button type="submit" class="btn btn-primary">
+        🔍 Search
+    </button>
+
+</form>
+
 
 {% if students %}
 
