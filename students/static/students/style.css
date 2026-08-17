@@ -1,6 +1,6 @@
-/* ================================
-   General
-================================ */
+/* ============================================================
+   GENERAL
+============================================================ */
 
 * {
     margin: 0;
@@ -15,9 +15,9 @@ body {
 }
 
 
-/* ================================
-   Sidebar
-================================ */
+/* ============================================================
+   SIDEBAR
+============================================================ */
 
 .sidebar {
     position: fixed;
@@ -69,7 +69,7 @@ body {
 
     border-radius: 8px;
 
-    transition: 0.2s;
+    transition: all 0.2s ease;
 }
 
 .nav-link:hover {
@@ -78,9 +78,9 @@ body {
 }
 
 
-/* ================================
-   Main Content
-================================ */
+/* ============================================================
+   MAIN CONTENT
+============================================================ */
 
 .main-content {
     margin-left: 240px;
@@ -88,9 +88,9 @@ body {
 }
 
 
-/* ================================
-   Topbar
-================================ */
+/* ============================================================
+   TOPBAR
+============================================================ */
 
 .topbar {
     background-color: white;
@@ -106,18 +106,18 @@ body {
 }
 
 
-/* ================================
-   Content
-================================ */
+/* ============================================================
+   CONTENT
+============================================================ */
 
 .content {
     padding: 30px;
 }
 
 
-/* ================================
-   Page Header
-================================ */
+/* ============================================================
+   PAGE HEADER
+============================================================ */
 
 .page-header {
     display: flex;
@@ -133,9 +133,9 @@ body {
 }
 
 
-/* ================================
-   Buttons
-================================ */
+/* ============================================================
+   BUTTONS
+============================================================ */
 
 .btn {
     display: inline-block;
@@ -154,7 +154,7 @@ body {
 
     font-weight: 500;
 
-    transition: 0.2s;
+    transition: all 0.2s ease;
 }
 
 .btn-primary {
@@ -194,9 +194,9 @@ body {
 }
 
 
-/* ================================
-   Student Table
-================================ */
+/* ============================================================
+   STUDENT TABLE
+============================================================ */
 
 .table-container {
     background-color: white;
@@ -262,22 +262,25 @@ body {
 }
 
 
-/* ================================
-   Table Actions
-================================ */
+/* ============================================================
+   TABLE ACTIONS
+============================================================ */
 
 .actions {
     display: flex;
-
     align-items: center;
-
     gap: 8px;
 }
 
+.student-table .actions .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+}
 
-/* ================================
-   Forms
-================================ */
+
+/* ============================================================
+   FORMS
+============================================================ */
 
 .form-container {
     max-width: 650px;
@@ -323,6 +326,8 @@ body {
     outline: none;
 
     background-color: white;
+
+    font-family: inherit;
 }
 
 .form-group input:focus,
@@ -330,13 +335,32 @@ body {
 .form-group textarea:focus {
     border-color: #2563eb;
 
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.form-error {
+    margin-top: 6px;
+
+    color: #dc2626;
+
+    font-size: 13px;
 }
 
 
-/* ================================
-   Delete Confirmation
-================================ */
+/* ============================================================
+   DELETE CONFIRMATION
+============================================================ */
 
 .confirmation-card {
     max-width: 500px;
@@ -374,10 +398,34 @@ body {
     gap: 10px;
 }
 
+.delete-icon {
+    width: 65px;
+    height: 65px;
 
-/* ================================
-   Empty State
-================================ */
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #fef2f2;
+
+    border-radius: 50%;
+
+    font-size: 30px;
+}
+
+.delete-warning {
+    color: #dc2626 !important;
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   EMPTY STATE
+============================================================ */
 
 .empty-message {
     text-align: center;
@@ -388,42 +436,9 @@ body {
 }
 
 
-/* ================================
-   Responsive
-================================ */
-
-@media (max-width: 768px) {
-
-    .sidebar {
-        width: 70px;
-    }
-
-    .logo span,
-    .nav-link span {
-        display: none;
-    }
-
-    .main-content {
-        margin-left: 70px;
-    }
-
-    .content {
-        padding: 20px;
-    }
-
-    .student-table {
-        min-width: 650px;
-    }
-
-    .student-table th,
-    .student-table td {
-        padding: 10px;
-    }
-}
-
-/* ================================
-   Dashboard
-================================ */
+/* ============================================================
+   DASHBOARD
+============================================================ */
 
 .dashboard-header {
     margin-bottom: 25px;
@@ -431,8 +446,10 @@ body {
 
 .dashboard-header h2 {
     font-size: 24px;
+
     color: #111827;
-    margin-bottom: 5px;
+
+    margin-bottom: 6px;
 }
 
 .dashboard-header p {
@@ -440,9 +457,9 @@ body {
 }
 
 
-/* ================================
-   Statistics Cards
-================================ */
+/* ============================================================
+   STATISTICS CARDS
+============================================================ */
 
 .stats-grid {
     display: grid;
@@ -469,7 +486,17 @@ body {
 
     gap: 20px;
 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.05);
+
+    transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .stat-icon {
@@ -503,9 +530,9 @@ body {
 }
 
 
-/* ================================
-   Dashboard Section
-================================ */
+/* ============================================================
+   DASHBOARD SECTION
+============================================================ */
 
 .dashboard-section {
     margin-top: 20px;
@@ -528,22 +555,9 @@ body {
 }
 
 
-/* ================================
-   Dashboard Responsive
-================================ */
-
-@media (max-width: 768px) {
-
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-
-/* ================================
-   Search
-================================ */
+/* ============================================================
+   SEARCH
+============================================================ */
 
 .search-form {
     display: flex;
@@ -572,12 +586,14 @@ body {
 .search-form input:focus {
     border-color: #2563eb;
 
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-/* ================================
-   Student Details
-================================ */
+
+/* ============================================================
+   STUDENT DETAILS
+============================================================ */
 
 .detail-card {
     max-width: 800px;
@@ -590,11 +606,9 @@ body {
 
     padding: 30px;
 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.05);
 }
-
-
-/* Student Header */
 
 .detail-header {
     display: flex;
@@ -640,9 +654,6 @@ body {
     font-size: 14px;
 }
 
-
-/* Detail Grid */
-
 .detail-grid {
     display: grid;
 
@@ -685,9 +696,6 @@ body {
     font-weight: 500;
 }
 
-
-/* Actions */
-
 .detail-actions {
     display: flex;
 
@@ -695,233 +703,15 @@ body {
 }
 
 
-/* Responsive */
-
-@media (max-width: 768px) {
-
-    .detail-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .detail-actions {
-        flex-direction: column;
-    }
-
-}
-
-/* ================================
-   Course Module
-================================ */
-
-
-/* Course Table */
+/* ============================================================
+   COURSE MODULE
+============================================================ */
 
 .course-table {
     width: 100%;
+
     border-collapse: collapse;
 }
-
-
-/* Form Actions */
-
-.form-actions {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    margin-top: 25px;
-}
-
-
-/* Form Error */
-
-.form-error {
-    margin-top: 6px;
-
-    color: #dc2626;
-
-    font-size: 13px;
-}
-
-
-/* Delete Confirmation */
-
-.delete-icon {
-    width: 65px;
-    height: 65px;
-
-    margin: 0 auto 20px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background-color: #fef2f2;
-
-    border-radius: 50%;
-
-    font-size: 30px;
-}
-
-.delete-warning {
-    color: #dc2626 !important;
-
-    font-size: 13px;
-}
-
-
-/* Course Table Description */
-
-.student-table td:nth-child(3) {
-    max-width: 300px;
-
-    line-height: 1.5;
-}
-
-
-/* Course Table Actions */
-
-.student-table .actions .btn {
-    padding: 8px 12px;
-
-    font-size: 13px;
-}
-
-
-/* Responsive Course Table */
-
-@media (max-width: 900px) {
-
-    .student-table {
-        min-width: 900px;
-    }
-
-}
-
-
-/* ================================
-   Dashboard Improvements
-================================ */
-
-.dashboard-header {
-    margin-bottom: 25px;
-}
-
-.dashboard-header h2 {
-    font-size: 24px;
-    color: #111827;
-    margin-bottom: 6px;
-}
-
-.dashboard-header p {
-    color: #6b7280;
-}
-
-
-/* ================================
-   Statistics
-================================ */
-
-.stats-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 20px;
-
-    margin-bottom: 30px;
-}
-
-.stat-card {
-    background-color: white;
-
-    border: 1px solid #e5e7eb;
-
-    border-radius: 12px;
-
-    padding: 25px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 20px;
-
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-
-    transition: 0.2s;
-}
-
-.stat-card:hover {
-    transform: translateY(-2px);
-
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-}
-
-.stat-icon {
-    width: 55px;
-
-    height: 55px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    background-color: #eff6ff;
-
-    border-radius: 10px;
-
-    font-size: 25px;
-}
-
-.stat-card h3 {
-    font-size: 28px;
-
-    color: #111827;
-
-    margin-bottom: 5px;
-}
-
-.stat-card p {
-    color: #6b7280;
-
-    font-size: 14px;
-}
-
-
-/* ================================
-   Dashboard Section
-================================ */
-
-.dashboard-section {
-    margin-top: 20px;
-}
-
-.section-header {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-bottom: 15px;
-}
-
-.section-header h2 {
-    font-size: 20px;
-
-    color: #111827;
-}
-
-
-/* ================================
-   Course Display
-================================ */
 
 .course-name {
     color: #111827;
@@ -935,15 +725,640 @@ body {
     font-style: italic;
 }
 
+.student-table td:nth-child(3) {
+    max-width: 300px;
 
-/* ================================
-   Responsive Dashboard
-================================ */
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   ============================================================
+   MODERN LOGIN PAGE
+   ============================================================
+============================================================ */
+
+.login-page {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(37, 99, 235, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(99, 102, 241, 0.12),
+            transparent 35%
+        ),
+        #f4f6f9;
+}
+
+
+/* ============================================================
+   LOGIN WRAPPER
+============================================================ */
+
+.login-wrapper {
+    width: 100%;
+
+    max-width: 950px;
+
+    min-height: 560px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background-color: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 70px rgba(15, 23, 42, 0.14);
+
+    animation: loginAppear 0.5s ease;
+}
+
+
+/* ============================================================
+   LOGIN BRAND
+============================================================ */
+
+.login-brand {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111827 0%,
+            #172554 45%,
+            #1d4ed8 100%
+        );
+
+    color: white;
+
+    padding: 60px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+/* Decorative circles */
+
+.login-brand::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    top: -90px;
+    right: -70px;
+}
+
+.login-brand::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: rgba(96, 165, 250, 0.08);
+
+    bottom: -80px;
+    left: -70px;
+}
+
+
+/* ============================================================
+   BRAND CONTENT
+============================================================ */
+
+.login-brand > * {
+    position: relative;
+
+    z-index: 2;
+}
+
+.brand-icon {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #2563eb
+        );
+
+    border-radius: 15px;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    margin-bottom: 28px;
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.login-brand h1 {
+    font-size: 35px;
+
+    line-height: 1.2;
+
+    margin-bottom: 18px;
+
+    color: white;
+}
+
+.login-brand p {
+    max-width: 370px;
+
+    color: #cbd5e1;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* ============================================================
+   BRAND FEATURES
+============================================================ */
+
+.brand-features {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    margin-top: 35px;
+}
+
+.brand-feature {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #dbeafe;
+
+    font-size: 13px;
+}
+
+.brand-feature-icon {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    border-radius: 8px;
+}
+
+
+/* ============================================================
+   LOGIN CARD
+============================================================ */
+
+.login-card {
+    width: 100%;
+
+    max-width: 390px;
+
+    margin: auto;
+
+    padding: 55px 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+/* ============================================================
+   LOGIN HEADING
+============================================================ */
+
+.login-heading {
+    margin-bottom: 32px;
+}
+
+.login-heading h2 {
+    font-size: 30px;
+
+    color: #111827;
+
+    margin-bottom: 8px;
+
+    letter-spacing: -0.5px;
+}
+
+.login-heading p {
+    color: #6b7280;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* ============================================================
+   LOGIN ERROR
+============================================================ */
+
+.login-error {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 12px 14px;
+
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+
+    background-color: #fef2f2;
+
+    border: 1px solid #fecaca;
+
+    color: #dc2626;
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   LOGIN FORM
+============================================================ */
+
+.login-form-group {
+    margin-bottom: 20px;
+}
+
+.login-form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #374151;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.login-form-group input {
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    background-color: #ffffff;
+
+    color: #111827;
+
+    font-size: 14px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.login-form-group input:hover {
+    border-color: #9ca3af;
+}
+
+.login-form-group input:focus {
+    background-color: #ffffff;
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.login-form-group input::placeholder {
+    color: #9ca3af;
+}
+
+
+/* ============================================================
+   PASSWORD INPUT
+============================================================ */
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 48px;
+}
+
+.password-toggle {
+    position: absolute;
+
+    top: 50%;
+    right: 12px;
+
+    transform: translateY(-50%);
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background: transparent;
+
+    color: #6b7280;
+
+    cursor: pointer;
+
+    border-radius: 6px;
+
+    transition: all 0.2s ease;
+}
+
+.password-toggle:hover {
+    background-color: #f3f4f6;
+
+    color: #2563eb;
+}
+
+
+/* ============================================================
+   LOGIN OPTIONS
+============================================================ */
+
+.login-options {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin: 4px 0 22px;
+
+    font-size: 13px;
+}
+
+.remember-me {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #6b7280;
+
+    cursor: pointer;
+}
+
+.remember-me input {
+    width: 15px;
+    height: 15px;
+
+    accent-color: #2563eb;
+
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #2563eb;
+
+    text-decoration: none;
+
+    font-weight: 500;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+
+/* ============================================================
+   LOGIN BUTTON
+============================================================ */
+
+.login-button {
+    position: relative;
+
+    width: 100%;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #1d4ed8
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    transition: all 0.2s ease;
+
+    overflow: hidden;
+}
+
+.login-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.login-button:active {
+    transform: translateY(0);
+
+    box-shadow: none;
+}
+
+.login-button:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, 0.2);
+
+    outline-offset: 2px;
+}
+
+
+/* ============================================================
+   LOGIN FOOTER
+============================================================ */
+
+.login-footer {
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #e5e7eb;
+
+    text-align: center;
+
+    color: #9ca3af;
+
+    font-size: 12px;
+}
+
+.login-footer a {
+    color: #2563eb;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+.login-footer span {
+    color: #9ca3af;
+
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   LOGIN ANIMATION
+============================================================ */
+
+@keyframes loginAppear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(15px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 900px) {
+
+    .student-table {
+        min-width: 900px;
+    }
+
+}
+
 
 @media (max-width: 768px) {
 
+    .sidebar {
+        width: 70px;
+    }
+
+    .logo span,
+    .nav-link span {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 70px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .student-table {
+        min-width: 650px;
+    }
+
+    .student-table th,
+    .student-table td {
+        padding: 10px;
+    }
+
     .stats-grid {
         grid-template-columns: 1fr;
+    }
+
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-actions {
+        flex-direction: column;
     }
 
     .section-header {
@@ -954,6 +1369,302 @@ body {
         gap: 12px;
     }
 
+
+    /* Login */
+
+    .login-page {
+        padding: 20px;
+    }
+
+    .login-wrapper {
+        grid-template-columns: 1fr;
+
+        max-width: 500px;
+
+        min-height: auto;
+    }
+
+    .login-brand {
+        display: none;
+    }
+
+    .login-card {
+        max-width: none;
+
+        padding: 45px 40px;
+    }
 }
 
 
+@media (max-width: 480px) {
+
+    .login-page {
+        padding: 12px;
+    }
+
+    .login-wrapper {
+        border-radius: 14px;
+    }
+
+    .login-card {
+        padding: 35px 25px;
+    }
+
+    .login-heading h2 {
+        font-size: 26px;
+    }
+
+    .login-options {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+}
+
+/* ============================================================
+   ADD STUDENT FORM
+============================================================ */
+
+.page-subtitle {
+    margin-top: 5px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   FORM HEADER
+============================================================ */
+
+.form-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding-bottom: 25px;
+
+    margin-bottom: 28px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.form-header-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #eff6ff;
+
+    border-radius: 10px;
+
+    font-size: 22px;
+}
+
+.form-header h3 {
+    color: #111827;
+
+    font-size: 18px;
+
+    margin-bottom: 4px;
+}
+
+.form-header p {
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   REQUIRED FIELD
+============================================================ */
+
+.required {
+    color: #dc2626;
+
+    margin-left: 3px;
+}
+
+
+/* ============================================================
+   FORM INPUT IMPROVEMENTS
+============================================================ */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+    border-color: #9ca3af;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    background-color: white;
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* ============================================================
+   FORM HELP TEXT
+============================================================ */
+
+.form-help {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #9ca3af;
+
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   FORM ERROR
+============================================================ */
+
+.form-error {
+    margin-top: 6px;
+
+    color: #dc2626;
+
+    font-size: 13px;
+}
+
+.form-error-box {
+    padding: 12px 14px;
+
+    margin-bottom: 20px;
+
+    background-color: #fef2f2;
+
+    border: 1px solid #fecaca;
+
+    border-radius: 8px;
+
+    color: #b91c1c;
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   FORM ACTIONS
+============================================================ */
+
+.form-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+
+/* ============================================================
+   FORM BUTTON IMPROVEMENT
+============================================================ */
+
+.form-actions .btn {
+    min-width: 130px;
+
+    text-align: center;
+}
+
+.form-actions .btn-primary {
+    box-shadow:
+        0 4px 10px rgba(37, 99, 235, 0.15);
+}
+
+.form-actions .btn-primary:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 15px rgba(37, 99, 235, 0.2);
+}
+
+
+/* ============================================================
+   ADD STUDENT RESPONSIVE
+============================================================ */
+
+@media (max-width: 768px) {
+
+    .page-header {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .form-container {
+        padding: 25px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .content {
+        padding: 15px;
+    }
+
+    .page-header {
+        flex-direction: column;
+    }
+
+    .page-header .btn {
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .form-header {
+        align-items: flex-start;
+    }
+
+}

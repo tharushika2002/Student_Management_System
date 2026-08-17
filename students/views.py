@@ -1,15 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 from .models import Student
 from .forms import StudentForm
-
 from courses.models import Course
 
 
-# ================================
+# =========================================================
 # Dashboard
-# ================================
+# =========================================================
 
+@login_required
 def dashboard(request):
 
     total_students = Student.objects.count()
@@ -33,10 +35,11 @@ def dashboard(request):
     )
 
 
-# ================================
+# =========================================================
 # Student List
-# ================================
+# =========================================================
 
+@login_required
 def student_list(request):
 
     query = request.GET.get("q", "").strip()
@@ -46,19 +49,15 @@ def student_list(request):
         students = (
             Student.objects
             .select_related("course")
-            .filter(
-                name__icontains=query
-            )
-            | Student.objects
+            .filter(name__icontains=query)
+            |
+            Student.objects
             .select_related("course")
-            .filter(
-                email__icontains=query
-            )
-            | Student.objects
+            .filter(email__icontains=query)
+            |
+            Student.objects
             .select_related("course")
-            .filter(
-                course__name__icontains=query
-            )
+            .filter(course__name__icontains=query)
         )
 
     else:
@@ -79,10 +78,11 @@ def student_list(request):
     )
 
 
-# ================================
+# =========================================================
 # Add Student
-# ================================
+# =========================================================
 
+@login_required
 def add_student(request):
 
     if request.method == "POST":
@@ -108,10 +108,11 @@ def add_student(request):
     )
 
 
-# ================================
+# =========================================================
 # Edit Student
-# ================================
+# =========================================================
 
+@login_required
 def edit_student(request, id):
 
     student = get_object_or_404(
@@ -148,10 +149,11 @@ def edit_student(request, id):
     )
 
 
-# ================================
+# =========================================================
 # Delete Student
-# ================================
+# =========================================================
 
+@login_required
 def delete_student(request, id):
 
     student = get_object_or_404(
@@ -174,10 +176,11 @@ def delete_student(request, id):
     )
 
 
-# ================================
+# =========================================================
 # Student Details
-# ================================
+# =========================================================
 
+@login_required
 def student_detail(request, id):
 
     student = get_object_or_404(
@@ -192,3 +195,51 @@ def student_detail(request, id):
             "student": student,
         }
     )
+
+
+# =========================================================
+# Login
+# =========================================================
+
+def login_view(request):
+
+    if request.method == "POST":
+
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(
+            request,
+            username=username,
+            password=password
+        )
+
+        if user is not None:
+
+            login(request, user)
+
+            return redirect("dashboard")
+
+        return render(
+            request,
+            "students/login.html",
+            {
+                "error": "Invalid username or password."
+            }
+        )
+
+    return render(
+        request,
+        "students/login.html"
+    )
+
+
+# =========================================================
+# Logout
+# =========================================================
+
+def logout_view(request):
+
+    logout(request)
+
+    return redirect("login")

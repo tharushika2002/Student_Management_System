@@ -14,16 +14,26 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+"""
+URL configuration for config project.
+"""
+
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import redirect
 
 
 urlpatterns = [
+
+    # Django Admin
     path("admin/", admin.site.urls),
 
-    # Connect the students app URLs
+    # Students app
     path("students/", include("students.urls")),
 
-    # Courses app URLs
+    # Courses app
     path("courses/", include("courses.urls")),
+
+    # Home → Dashboard
+    path("", lambda request: redirect("dashboard")),
 ]

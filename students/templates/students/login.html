@@ -1,0 +1,134 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Student Management System</title>
+
+    <link rel="stylesheet" href="{% static 'students/style.css' %}">
+
+</head>
+
+<body class="login-page">
+
+    <div class="login-wrapper">
+
+        <!-- Left Side -->
+        <div class="login-brand">
+
+            <div class="brand-icon">
+                S
+            </div>
+
+            <h1>
+                Student Management
+            </h1>
+
+            <p>
+                Manage students, courses and academic
+                information in one place.
+            </p>
+
+        </div>
+
+
+        <!-- Right Side -->
+        <div class="login-card">
+
+            <div class="login-heading">
+
+                <h2>
+                    Sign in
+                </h2>
+
+                <p>
+                    Enter your account details to continue.
+                </p>
+
+            </div>
+
+
+            {% if error %}
+
+                <div class="login-error">
+                    {{ error }}
+                </div>
+
+            {% endif %}
+
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+
+                <div class="login-form-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="login-form-group">
+
+                    <div class="password-label">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                    </div>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+                    Sign in
+                </button>
+
+            </form>
+
+
+            <div class="login-footer">
+
+                <span>
+                    Student Management System
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

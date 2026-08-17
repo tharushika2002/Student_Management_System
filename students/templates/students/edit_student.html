@@ -1,3 +1,4 @@
+```html
 {% extends "students/base.html" %}
 
 {% block title %}
@@ -11,21 +12,121 @@
 {% block content %}
 
 <div class="page-header">
-    <h2>Edit Student</h2>
+
+    <div>
+        <h2>Edit Student</h2>
+
+        <p class="page-subtitle">
+            Update the student's information below.
+        </p>
+    </div>
+
+    <a href="{% url 'student_list' %}" class="btn btn-secondary">
+        ← Back to Students
+    </a>
+
 </div>
 
+
 <div class="form-container">
+
+    <!-- Form Header -->
+
+    <div class="form-header">
+
+        <div class="form-header-icon">
+            ✏️
+        </div>
+
+        <div>
+            <h3>Edit Student Information</h3>
+
+            <p>
+                Make the necessary changes and save the updated information.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- Student Form -->
 
     <form method="POST">
 
         {% csrf_token %}
 
-        {{ form.as_p }}
 
-        <div style="margin-top: 20px;">
+        <!-- Non-field Errors -->
+
+        {% if form.non_field_errors %}
+
+            <div class="form-error-box">
+
+                {{ form.non_field_errors }}
+
+            </div>
+
+        {% endif %}
+
+
+        <!-- Form Fields -->
+
+        {% for field in form %}
+
+            <div class="form-group">
+
+                <label for="{{ field.id_for_label }}">
+
+                    {{ field.label }}
+
+                    {% if field.field.required %}
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    {% endif %}
+
+                </label>
+
+
+                {{ field }}
+
+
+                {% if field.help_text %}
+
+                    <small class="form-help">
+                        {{ field.help_text }}
+                    </small>
+
+                {% endif %}
+
+
+                {% if field.errors %}
+
+                    <div class="form-error">
+
+                        {% for error in field.errors %}
+
+                            {{ error }}
+
+                        {% endfor %}
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+        {% endfor %}
+
+
+        <!-- Form Actions -->
+
+        <div class="form-actions">
 
             <button type="submit" class="btn btn-primary">
-                Update Student
+                ✓ Update Student
             </button>
 
             <a href="{% url 'student_list' %}" class="btn btn-secondary">
@@ -39,3 +140,4 @@
 </div>
 
 {% endblock %}
+```
