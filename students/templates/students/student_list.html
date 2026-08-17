@@ -2,26 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Students</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management System</title>
 </head>
+
 <body>
 
     <h1>Student Management System</h1>
 
     <h2>Students</h2>
 
-    {% for student in students %}
-        <div>
-            <h3>{{ student.name }}</h3>
-            <p>Email: {{ student.email }}</p>
-            <p>Age: {{ student.age }}</p>
-            <p>Course: {{ student.course }}</p>
-        </div>
+    {% if students %}
 
-        <hr>
-    {% empty %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for student in students %}
+
+                <tr>
+                    <td>{{ student.id }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>{{ student.age }}</td>
+                    <td>{{ student.course }}</td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    {% else %}
+
         <p>No students found.</p>
-    {% endfor %}
+
+    {% endif %}
 
 </body>
 </html>
