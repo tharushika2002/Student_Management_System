@@ -20,10 +20,19 @@ def dashboard(request):
 
 
 def student_list(request):
-    students = Student.objects.all()
+
+    query = request.GET.get("q")
+
+    if query:
+        students = Student.objects.filter(
+            name__icontains=query
+        )
+    else:
+        students = Student.objects.all()
 
     return render(request, "students/student_list.html", {
-        "students": students
+        "students": students,
+        "query": query,
     })
 
 
