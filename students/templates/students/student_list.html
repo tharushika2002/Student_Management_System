@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +14,17 @@
 
     <h2>Students</h2>
 
+    <a href="{% url 'add_student' %}">
+        Add Student
+    </a>
+
+    <br>
+    <br>
+
     {% if students %}
 
         <table border="1">
+
             <thead>
                 <tr>
                     <th>ID</th>
@@ -23,6 +32,7 @@
                     <th>Email</th>
                     <th>Age</th>
                     <th>Course</th>
+                    <th>Action</th>
                 </tr>
             </thead>
 
@@ -36,11 +46,18 @@
                     <td>{{ student.email }}</td>
                     <td>{{ student.age }}</td>
                     <td>{{ student.course }}</td>
+
+                    <td>
+                        <a href="{% url 'edit_student' student.id %}">
+                            Edit
+                        </a>
+                    </td>
                 </tr>
 
                 {% endfor %}
 
             </tbody>
+
         </table>
 
     {% else %}
@@ -50,4 +67,5 @@
     {% endif %}
 
 </body>
+
 </html>

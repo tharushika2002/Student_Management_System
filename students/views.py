@@ -26,3 +26,21 @@ def add_student(request):
     return render(request, "students/add_student.html", {
         "form": form
     })
+
+def edit_student(request, id):
+    student = Student.objects.get(id=id)
+
+    if request.method == "POST":
+        form = StudentForm(request.POST, instance=student)
+
+        if form.is_valid():
+            form.save()
+            return redirect("student_list")
+
+    else:
+        form = StudentForm(instance=student)
+
+    return render(request, "students/edit_student.html", {
+        "form": form,
+        "student": student
+    })
