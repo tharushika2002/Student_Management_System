@@ -26,13 +26,24 @@
             <span>Student MS</span>
         </div>
 
+
         <nav class="sidebar-nav">
 
-            <a href="{% url 'student_list' %}" class="nav-link">
+            <!-- Dashboard -->
+            <a href="{% url 'dashboard' %}" class="nav-link">
                 🏠
+                <span>Dashboard</span>
+            </a>
+
+
+            <!-- Students -->
+            <a href="{% url 'student_list' %}" class="nav-link">
+                👨‍🎓
                 <span>Students</span>
             </a>
 
+
+            <!-- Add Student -->
             <a href="{% url 'add_student' %}" class="nav-link">
                 ➕
                 <span>Add Student</span>
@@ -50,11 +61,13 @@
         <header class="topbar">
 
             <div>
+
                 <h1>
                     {% block page_title %}
                         Student Management System
                     {% endblock %}
                 </h1>
+
             </div>
 
         </header>

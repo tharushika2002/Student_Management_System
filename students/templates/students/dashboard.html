@@ -1,0 +1,154 @@
+{% extends "students/base.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block page_title %}
+    Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-header">
+
+    <div>
+        <h2>Dashboard</h2>
+
+        <p>
+            Welcome to Student Management System
+        </p>
+    </div>
+
+</div>
+
+
+<!-- Statistics -->
+
+<div class="stats-grid">
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            👨‍🎓
+        </div>
+
+        <div>
+            <h3>{{ total_students }}</h3>
+            <p>Total Students</p>
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-icon">
+            📚
+        </div>
+
+        <div>
+            <h3>{{ total_courses }}</h3>
+            <p>Total Courses</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Recent Students -->
+
+<div class="dashboard-section">
+
+    <div class="section-header">
+
+        <h2>Recent Students</h2>
+
+        <a href="{% url 'student_list' %}" class="btn btn-primary">
+            View All
+        </a>
+
+    </div>
+
+
+    {% if recent_students %}
+
+    <div class="table-container">
+
+        <table class="student-table">
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Course</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for student in recent_students %}
+
+                <tr>
+
+                    <td>
+                        {{ student.id }}
+                    </td>
+
+                    <td>
+                        {{ student.name }}
+                    </td>
+
+                    <td>
+                        {{ student.email }}
+                    </td>
+
+                    <td>
+                        {{ student.age }}
+                    </td>
+
+                    <td>
+                        {{ student.course }}
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    {% else %}
+
+    <div class="table-container">
+
+        <div class="empty-message">
+
+            <p>
+                No students found.
+            </p>
+
+            <br>
+
+            <a href="{% url 'add_student' %}" class="btn btn-primary">
+                Add Student
+            </a>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
