@@ -1,15 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "students/base.html" %}
 
-    <title>Edit Student</title>
-</head>
+{% block title %}
+    Edit Student
+{% endblock %}
 
-<body>
+{% block page_title %}
+    Edit Student
+{% endblock %}
 
-    <h1>Edit Student</h1>
+{% block content %}
+
+<div class="page-header">
+    <h2>Edit Student</h2>
+</div>
+
+<div class="form-container">
 
     <form method="POST">
 
@@ -17,17 +22,20 @@
 
         {{ form.as_p }}
 
-        <button type="submit">
-            Update Student
-        </button>
+        <div style="margin-top: 20px;">
+
+            <button type="submit" class="btn btn-primary">
+                Update Student
+            </button>
+
+            <a href="{% url 'student_list' %}" class="btn btn-secondary">
+                Cancel
+            </a>
+
+        </div>
 
     </form>
 
-    <br>
+</div>
 
-    <a href="{% url 'student_list' %}">
-        Back to Students
-    </a>
-
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+            Student Management System
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="{% static 'students/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            🎓
+            <span>Student MS</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="{% url 'student_list' %}" class="nav-link">
+                🏠
+                <span>Students</span>
+            </a>
+
+            <a href="{% url 'add_student' %}" class="nav-link">
+                ➕
+                <span>Add Student</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+
+            <div>
+                <h1>
+                    {% block page_title %}
+                        Student Management System
+                    {% endblock %}
+                </h1>
+            </div>
+
+        </header>
+
+
+        <!-- Page Content -->
+        <section class="content">
+
+            {% block content %}
+
+            {% endblock %}
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

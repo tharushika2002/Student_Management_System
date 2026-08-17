@@ -1,0 +1,422 @@
+/* ================================
+   General
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    color: #1f2937;
+}
+
+
+/* ================================
+   Sidebar
+================================ */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 240px;
+    height: 100vh;
+
+    background-color: #111827;
+    color: white;
+
+    padding: 25px 15px;
+
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    padding: 10px;
+    margin-bottom: 40px;
+}
+
+.logo span {
+    white-space: nowrap;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #d1d5db;
+    text-decoration: none;
+
+    padding: 13px 15px;
+
+    border-radius: 8px;
+
+    transition: 0.2s;
+}
+
+.nav-link:hover {
+    background-color: #374151;
+    color: white;
+}
+
+
+/* ================================
+   Main Content
+================================ */
+
+.main-content {
+    margin-left: 240px;
+    min-height: 100vh;
+}
+
+
+/* ================================
+   Topbar
+================================ */
+
+.topbar {
+    background-color: white;
+
+    padding: 22px 30px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.topbar h1 {
+    font-size: 24px;
+    color: #111827;
+}
+
+
+/* ================================
+   Content
+================================ */
+
+.content {
+    padding: 30px;
+}
+
+
+/* ================================
+   Page Header
+================================ */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.page-header h2 {
+    font-size: 22px;
+    color: #111827;
+}
+
+
+/* ================================
+   Buttons
+================================ */
+
+.btn {
+    display: inline-block;
+
+    padding: 10px 16px;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    transition: 0.2s;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-warning {
+    background-color: #f59e0b;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #d97706;
+}
+
+.btn-danger {
+    background-color: #dc2626;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #b91c1c;
+}
+
+.btn-secondary {
+    background-color: #6b7280;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #4b5563;
+}
+
+
+/* ================================
+   Student Table
+================================ */
+
+.table-container {
+    background-color: white;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 12px;
+
+    overflow-x: auto;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.student-table {
+    width: 100%;
+
+    min-width: 750px;
+
+    border-collapse: collapse;
+}
+
+.student-table th,
+.student-table td {
+    padding: 16px 18px;
+
+    text-align: left;
+
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #d1d5db;
+}
+
+.student-table th:last-child,
+.student-table td:last-child {
+    border-right: none;
+}
+
+.student-table th {
+    background-color: #f3f4f6;
+
+    color: #111827;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    border-bottom: 2px solid #9ca3af;
+}
+
+.student-table td {
+    color: #4b5563;
+
+    font-size: 14px;
+
+    background-color: white;
+}
+
+.student-table tbody tr:hover td {
+    background-color: #f8fafc;
+}
+
+.student-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ================================
+   Table Actions
+================================ */
+
+.actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+/* ================================
+   Forms
+================================ */
+
+.form-container {
+    max-width: 650px;
+
+    background-color: white;
+
+    padding: 30px;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: 600;
+
+    color: #374151;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    background-color: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* ================================
+   Delete Confirmation
+================================ */
+
+.confirmation-card {
+    max-width: 500px;
+
+    background-color: white;
+
+    padding: 35px;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+    text-align: center;
+}
+
+.confirmation-card h2 {
+    margin-bottom: 15px;
+
+    color: #111827;
+}
+
+.confirmation-card p {
+    margin-bottom: 25px;
+
+    color: #6b7280;
+}
+
+.confirmation-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+
+/* ================================
+   Empty State
+================================ */
+
+.empty-message {
+    text-align: center;
+
+    padding: 40px;
+
+    color: #6b7280;
+}
+
+
+/* ================================
+   Responsive
+================================ */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 70px;
+    }
+
+    .logo span,
+    .nav-link span {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 70px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .student-table {
+        min-width: 650px;
+    }
+
+    .student-table th,
+    .student-table td {
+        padding: 10px;
+    }
+}

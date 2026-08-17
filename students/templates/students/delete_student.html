@@ -1,31 +1,36 @@
 {% extends "students/base.html" %}
 
 {% block title %}
-    Add Student
+    Delete Student
 {% endblock %}
 
 {% block page_title %}
-    Add Student
+    Delete Student
 {% endblock %}
 
 {% block content %}
 
 <div class="page-header">
-    <h2>Add New Student</h2>
+    <h2>Delete Student</h2>
 </div>
 
-<div class="form-container">
+<div class="confirmation-card">
+
+    <h2>⚠️ Delete Student?</h2>
+
+    <p>
+        Are you sure you want to delete
+        <strong>{{ student.name }}</strong>?
+    </p>
 
     <form method="POST">
 
         {% csrf_token %}
 
-        {{ form.as_p }}
+        <div class="confirmation-actions">
 
-        <div style="margin-top: 20px;">
-
-            <button type="submit" class="btn btn-primary">
-                Save Student
+            <button type="submit" class="btn btn-danger">
+                Yes, Delete
             </button>
 
             <a href="{% url 'student_list' %}" class="btn btn-secondary">

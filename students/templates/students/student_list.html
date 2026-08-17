@@ -1,71 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "students/base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}
+    Students
+{% endblock %}
 
-    <title>Student Management System</title>
-</head>
+{% block page_title %}
+    Students
+{% endblock %}
 
-<body>
+{% block content %}
 
-    <h1>Student Management System</h1>
+<div class="page-header">
 
-    <h2>Students</h2>
+    <div>
+        <h2>All Students</h2>
+    </div>
 
-    <a href="{% url 'add_student' %}">
-        Add Student
+    <a href="{% url 'add_student' %}" class="btn btn-primary">
+        + Add Student
     </a>
 
-    <br>
-    <br>
+</div>
 
-    {% if students %}
 
-        <table border="1">
+{% if students %}
 
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Age</th>
-                    <th>Course</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
+<div class="table-container">
 
-            <tbody>
+    <table class="student-table">
 
-                {% for student in students %}
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Course</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
 
-                <tr>
-                    <td>{{ student.id }}</td>
-                    <td>{{ student.name }}</td>
-                    <td>{{ student.email }}</td>
-                    <td>{{ student.age }}</td>
-                    <td>{{ student.course }}</td>
+        <tbody>
 
-                    <td>
-                        <a href="{% url 'edit_student' student.id %}">
-                            Edit
-                        </a>
-                    </td>
-                </tr>
+            {% for student in students %}
 
-                {% endfor %}
+            <tr>
 
-            </tbody>
+                <td>{{ student.id }}</td>
 
-        </table>
+                <td>{{ student.name }}</td>
 
-    {% else %}
+                <td>{{ student.email }}</td>
 
+                <td>{{ student.age }}</td>
+
+                <td>{{ student.course }}</td>
+
+                <td class="actions">
+
+                    <a
+                        href="{% url 'edit_student' student.id %}"
+                        class="btn btn-warning"
+                    >
+                        Edit
+                    </a>
+
+                    <a
+                        href="{% url 'delete_student' student.id %}"
+                        class="btn btn-danger"
+                    >
+                        Delete
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% else %}
+
+<div class="table-container">
+
+    <div class="empty-message">
         <p>No students found.</p>
 
-    {% endif %}
+        <br>
 
-</body>
+        <a href="{% url 'add_student' %}" class="btn btn-primary">
+            Add Your First Student
+        </a>
+    </div>
 
-</html>
+</div>
+
+{% endif %}
+
+{% endblock %}

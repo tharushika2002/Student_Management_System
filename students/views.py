@@ -44,3 +44,14 @@ def edit_student(request, id):
         "form": form,
         "student": student
     })
+
+def delete_student(request, id):
+    student = Student.objects.get(id=id)
+
+    if request.method == "POST":
+        student.delete()
+        return redirect("student_list")
+
+    return render(request, "students/delete_student.html", {
+        "student": student
+    })
