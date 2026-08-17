@@ -1,0 +1,66 @@
+{% extends "students/base.html" %}
+
+{% block title %}
+    Delete Course
+{% endblock %}
+
+{% block page_title %}
+    Delete Course
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+        <h2>Delete Course</h2>
+    </div>
+
+</div>
+
+
+<div class="confirmation-card">
+
+    <div class="delete-icon">
+        ⚠️
+    </div>
+
+    <h2>Delete Course?</h2>
+
+    <p>
+        Are you sure you want to delete
+        <strong>{{ course.name }}</strong>?
+    </p>
+
+    <p class="delete-warning">
+        This action cannot be undone.
+    </p>
+
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <div class="confirmation-actions">
+
+            <button
+                type="submit"
+                class="btn btn-danger"
+            >
+                🗑️ Yes, Delete
+            </button>
+
+            <a
+                href="{% url 'course_list' %}"
+                class="btn btn-secondary"
+            >
+                Cancel
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}
