@@ -708,3 +708,95 @@ body {
     }
 
 }
+
+/* ================================
+   Course Module
+================================ */
+
+
+/* Course Table */
+
+.course-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+/* Form Actions */
+
+.form-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+
+/* Form Error */
+
+.form-error {
+    margin-top: 6px;
+
+    color: #dc2626;
+
+    font-size: 13px;
+}
+
+
+/* Delete Confirmation */
+
+.delete-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #fef2f2;
+
+    border-radius: 50%;
+
+    font-size: 30px;
+}
+
+.delete-warning {
+    color: #dc2626 !important;
+
+    font-size: 13px;
+}
+
+
+/* Course Table Description */
+
+.student-table td:nth-child(3) {
+    max-width: 300px;
+
+    line-height: 1.5;
+}
+
+
+/* Course Table Actions */
+
+.student-table .actions .btn {
+    padding: 8px 12px;
+
+    font-size: 13px;
+}
+
+
+/* Responsive Course Table */
+
+@media (max-width: 900px) {
+
+    .student-table {
+        min-width: 900px;
+    }
+
+}
