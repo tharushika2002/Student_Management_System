@@ -21,11 +21,15 @@ def dashboard(request):
 
 def student_list(request):
 
-    query = request.GET.get("q")
+    query = request.GET.get("q", "").strip()
 
     if query:
         students = Student.objects.filter(
             name__icontains=query
+        ) | Student.objects.filter(
+            email__icontains=query
+        ) | Student.objects.filter(
+            course__icontains=query
         )
     else:
         students = Student.objects.all()
