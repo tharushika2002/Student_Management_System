@@ -10,7 +10,13 @@ class Student(models.Model):
     age = models.IntegerField()
 
     # Student's course name
-    course = models.CharField(max_length=100)
+    course = models.ForeignKey(
+        "courses.Course",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="students"
+    )
 
     def __str__(self):
         return self.name

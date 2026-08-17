@@ -23,4 +23,7 @@ urlpatterns = [
 
     # Connect the students app URLs
     path("students/", include("students.urls")),
+
+    # Courses app URLs
+    path("courses/", include("courses.urls")),
 ]

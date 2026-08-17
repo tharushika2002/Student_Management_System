@@ -13,19 +13,27 @@
 <div class="dashboard-header">
 
     <div>
-        <h2>Dashboard</h2>
+
+        <h2>
+            Dashboard
+        </h2>
 
         <p>
             Welcome to Student Management System
         </p>
+
     </div>
 
 </div>
 
 
-<!-- Statistics -->
+<!-- ================================
+     Statistics
+================================ -->
 
 <div class="stats-grid">
+
+    <!-- Total Students -->
 
     <div class="stat-card">
 
@@ -34,12 +42,21 @@
         </div>
 
         <div>
-            <h3>{{ total_students }}</h3>
-            <p>Total Students</p>
+
+            <h3>
+                {{ total_students }}
+            </h3>
+
+            <p>
+                Total Students
+            </p>
+
         </div>
 
     </div>
 
+
+    <!-- Total Courses -->
 
     <div class="stat-card">
 
@@ -48,8 +65,15 @@
         </div>
 
         <div>
-            <h3>{{ total_courses }}</h3>
-            <p>Total Courses</p>
+
+            <h3>
+                {{ total_courses }}
+            </h3>
+
+            <p>
+                Total Courses
+            </p>
+
         </div>
 
     </div>
@@ -57,15 +81,22 @@
 </div>
 
 
-<!-- Recent Students -->
+<!-- ================================
+     Recent Students
+================================ -->
 
 <div class="dashboard-section">
 
     <div class="section-header">
 
-        <h2>Recent Students</h2>
+        <h2>
+            Recent Students
+        </h2>
 
-        <a href="{% url 'student_list' %}" class="btn btn-primary">
+        <a
+            href="{% url 'student_list' %}"
+            class="btn btn-primary"
+        >
             View All
         </a>
 
@@ -81,11 +112,27 @@
             <thead>
 
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Age</th>
-                    <th>Course</th>
+
+                    <th>
+                        ID
+                    </th>
+
+                    <th>
+                        Name
+                    </th>
+
+                    <th>
+                        Email
+                    </th>
+
+                    <th>
+                        Age
+                    </th>
+
+                    <th>
+                        Course
+                    </th>
+
                 </tr>
 
             </thead>
@@ -114,7 +161,21 @@
                     </td>
 
                     <td>
-                        {{ student.course }}
+
+                        {% if student.course %}
+
+                            <span class="course-name">
+                                {{ student.course.name }}
+                            </span>
+
+                        {% else %}
+
+                            <span class="no-course">
+                                No Course
+                            </span>
+
+                        {% endif %}
+
                     </td>
 
                 </tr>
@@ -139,7 +200,10 @@
 
             <br>
 
-            <a href="{% url 'add_student' %}" class="btn btn-primary">
+            <a
+                href="{% url 'add_student' %}"
+                class="btn btn-primary"
+            >
                 Add Student
             </a>
 
