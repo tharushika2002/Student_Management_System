@@ -74,6 +74,13 @@
                 <td class="actions">
 
                     <a
+                        href="{% url 'student_details' student.id %}"
+                        class="btn btn-primary"
+                    >
+                        View
+                    </a>
+
+                    <a
                         href="{% url 'edit_student' student.id %}"
                         class="btn btn-warning"
                     >

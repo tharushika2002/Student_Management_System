@@ -84,3 +84,11 @@ def delete_student(request, id):
     return render(request, "students/delete_student.html", {
         "student": student
     })
+
+def student_detail(request, id):
+
+    student = Student.objects.get(id=id)
+
+    return render(request, "students/student_details.html", {
+        "student": student
+    })

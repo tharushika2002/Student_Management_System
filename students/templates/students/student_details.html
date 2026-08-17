@@ -1,0 +1,114 @@
+{% extends "students/base.html" %}
+
+{% block title %}
+    Student Details
+{% endblock %}
+
+{% block page_title %}
+    Student Details
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+        <h2>Student Details</h2>
+    </div>
+
+</div>
+
+
+<div class="detail-card">
+
+    <div class="detail-header">
+
+        <div class="student-avatar">
+            👤
+        </div>
+
+        <div>
+            <h2>{{ student.name }}</h2>
+            <p>Student ID: #{{ student.id }}</p>
+        </div>
+
+    </div>
+
+
+    <div class="detail-grid">
+
+        <div class="detail-item">
+
+            <span class="detail-label">
+                Name
+            </span>
+
+            <span class="detail-value">
+                {{ student.name }}
+            </span>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span class="detail-label">
+                Email
+            </span>
+
+            <span class="detail-value">
+                {{ student.email }}
+            </span>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span class="detail-label">
+                Age
+            </span>
+
+            <span class="detail-value">
+                {{ student.age }}
+            </span>
+
+        </div>
+
+
+        <div class="detail-item">
+
+            <span class="detail-label">
+                Course
+            </span>
+
+            <span class="detail-value">
+                {{ student.course }}
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="detail-actions">
+
+        <a
+            href="{% url 'edit_student' student.id %}"
+            class="btn btn-warning"
+        >
+            ✏️ Edit Student
+        </a>
+
+        <a
+            href="{% url 'student_list' %}"
+            class="btn btn-secondary"
+        >
+            ← Back to Students
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
