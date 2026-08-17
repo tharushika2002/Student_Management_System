@@ -1,0 +1,143 @@
+{% extends "students/base.html" %}
+
+{% block title %}
+    Courses
+{% endblock %}
+
+{% block page_title %}
+    Courses
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+        <h2>All Courses</h2>
+    </div>
+
+    <a href="{% url 'add_course' %}" class="btn btn-primary">
+        + Add Course
+    </a>
+
+</div>
+
+
+<!-- Search -->
+
+<form method="GET" class="search-form">
+
+    <input
+        type="text"
+        name="q"
+        placeholder="Search course..."
+        value="{{ query }}"
+    >
+
+    <button type="submit" class="btn btn-primary">
+        🔍 Search
+    </button>
+
+</form>
+
+
+<!-- Course Table -->
+
+<div class="table-container">
+
+    {% if courses %}
+
+    <table class="student-table">
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Course Name</th>
+                <th>Description</th>
+                <th>Duration</th>
+                <th>Created</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            {% for course in courses %}
+
+            <tr>
+
+                <td>
+                    {{ course.id }}
+                </td>
+
+                <td>
+                    <strong>{{ course.name }}</strong>
+                </td>
+
+                <td>
+                    {{ course.description|default:"-" }}
+                </td>
+
+                <td>
+                    {{ course.duration }} months
+                </td>
+
+                <td>
+                    {{ course.created_at|date:"Y-m-d" }}
+                </td>
+
+                <td>
+
+                    <div class="actions">
+
+                        <a
+                            href="{% url 'edit_course' course.id %}"
+                            class="btn btn-warning"
+                        >
+                            ✏️ Edit
+                        </a>
+
+                        <a
+                            href="{% url 'delete_course' course.id %}"
+                            class="btn btn-danger"
+                        >
+                            🗑️ Delete
+                        </a>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    {% else %}
+
+    <div class="empty-message">
+
+        <p>No courses found.</p>
+
+        <br>
+
+        <a
+            href="{% url 'add_course' %}"
+            class="btn btn-primary"
+        >
+            + Add Course
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
